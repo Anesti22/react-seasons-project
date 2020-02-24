@@ -19,8 +19,8 @@ class App extends React.Component {
         );
     }
 
-    render() {
 
+    renderContent() {
         if(this.state.errorMessage && !this.state.lat) {
             return (
                 <div className="ui error message">
@@ -41,6 +41,14 @@ class App extends React.Component {
         }
         return <Spinner  messageSpinner= "Please accept the request location"/>
     }
+
+    render() {
+        return (
+            <div className="border red">
+                {this.renderContent()}
+            </div>
+        );
+    }
 }
 
 ReactDOM.render(
@@ -48,3 +56,29 @@ ReactDOM.render(
     document.querySelector('#root')
 );
 
+
+// Just to test the knowledge
+
+// class Clock extends React.Component {
+
+//     state = {time: new Date().toLocaleTimeString()};
+
+//     componentDidMount() {
+//         setInterval(() => {
+//             this.setState({time: new Date().toLocaleTimeString()})
+//         }, 1000);
+//     }
+
+//     render() {
+//         return (
+//             <div className="time">
+//                 The Time is: {this.state.time}
+//             </div>
+//         )
+//     }
+// }
+
+// ReactDOM.render(
+//     <Clock />,
+//     document.querySelector('#root2')
+// );
